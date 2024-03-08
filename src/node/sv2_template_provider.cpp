@@ -436,7 +436,7 @@ void Sv2TemplateProvider::ThreadSv2Handler()
                     LogPrintLevel(BCLog::SV2, BCLog::Level::Trace, "Disconnecting client id=%zu\n",
                                   client->m_id);
                     client->m_disconnect_flag = true;
-                    continue;
+                    break;
                 }
 
                 try
@@ -450,7 +450,7 @@ void Sv2TemplateProvider::ThreadSv2Handler()
                             LogPrintLevel(BCLog::SV2, BCLog::Level::Trace, "Transport problem, disconnecting client id=%zu\n",
                                           client->m_id);
                             client->m_disconnect_flag = true;
-                            continue;
+                            break;
                         }
 
                         if (client->m_transport->ReceivedMessageComplete()) {
